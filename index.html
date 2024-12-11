@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header con opciones de usuario -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo de Tienda de Belleza" class="logo-img">
+        </div>
+            <!-- search-->
+        <div id="search-bar-wrapper">
+            <i class="fa fa-search"></i>
+            <input type="text" id="search-bar" placeholder="Buscar productos..." onkeyup="searchProducts()">
+        </div>
+
+        <div class="user-options">
+            <!-- Carrito -->
+            <button id="cart-button" onclick="openCartModal()">
+                <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 0, 0); transform: scale(1.2);"></i>
+                <span id="cart-count">0</span>
+            </button>
+
+            <!-- Contáctenos -->
+            <button id="contact-button" onclick="openContactForm()">
+                <i class="fa-solid fa-envelope"></i>
+            </button>
+
+            <!-- Iniciar sesión -->
+            <button id="login-button" onclick="openLoginModal()">
+                <i class="fa-solid fa-user"></i>
+            </button>
+
+            <!-- Ubicación -->
+            <button id="location-button" onclick="openLocationModal()">
+                <i class="fa-solid fa-location-pin"></i>
+            </button>   
+        </div>
+    </header>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="img/slider.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="image2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="image3.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#8249;</button>
+        <button class="next" onclick="moveSlide(1)">&#8250;</button>
+    </div>
+
+    <!-- Sección de productos -->
+    <section id="product-section">
+        
+        
+        <div id="product-list" class="products-container"></div>
+
+        
+        
+        
+    
+        <div id="makeup-products" class="product-list"></div>
+
+        
+
+        <div id="haircare-products" class="product-list"></div>
+
+       
+        
+        <div id="skincare-products" class="product-list"></div>
+    </section>
+    <section id="about-us" class="about-us-section">
+        <div class="about-us-wrapper">
+            <div class="about-us-content">
+                <div class="about-us-text">
+                    <h1>¿Quiénes somos en <span class="highlighted-name">Online Shop</span>?</h1>
+                    <p>
+                        En <strong>Online Shop</strong>, estamos dedicados a ofrecerte lo último en accesorios tecnológicos, pensados especialmente para estudiantes, profesionales y amantes de la tecnología. Sabemos lo importante que es tener los dispositivos y accesorios adecuados, y por eso te traemos lo mejor de lo mejor.
+                    </p>
+                    <p>
+                        Nuestro catálogo incluye todo lo que necesitas para tu celular y gadgets: desde cargadores rápidos y audífonos inalámbricos hasta fundas resistentes y tecnología de vanguardia. Trabajamos solo con marcas de renombre para que puedas confiar en que cada producto que adquieras te acompañará en tu vida diaria, de la manera más eficiente y estilizada.
+                    </p>
+                    <p>
+                        Pero somos más que una tienda: somos tu aliado digital. En <strong>TechWave</strong>, nos importa tu experiencia de compra y estamos siempre disponibles para ayudarte a encontrar lo que realmente necesitas. Estamos comprometidos con ofrecerte productos de calidad, con precios accesibles y el mejor servicio al cliente.
+                    </p>
+                </div>
+                <div class="about-us-image">
+                    <img src="img/1.jpg" alt="Tecnología y productos TechWave" />
+                </div>
+            </div>
+    
+            <div class="about-us-highlights">
+                <h2>¿Por qué elegirnos?</h2>
+                <div class="highlight">
+                    <i class="fa-solid fa-star" style="color: #f39c12;"></i>
+                    <h3>Calidad Premium</h3>
+                    <p>Nos aseguramos de que cada artículo sea de la mejor calidad, garantizando durabilidad y fiabilidad.</p>
+                </div>
+                <div class="highlight">
+                    <i class="fa-solid fa-dollar-sign" style="color: #27ae60;"></i>
+                    <h3>Precios Especiales</h3>
+                    <p>Te ofrecemos productos tecnológicos de alta gama a precios accesibles y con descuentos exclusivos.</p>
+                </div>
+                <div class="highlight">
+                    <i class="fa-solid fa-lightbulb" style="color: #e74c3c;"></i>
+                    <h3>Innovación al Máximo</h3>
+                    <p>Nos mantenemos a la vanguardia, trayendo las últimas tendencias y gadgets para mejorar tu día a día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="politicas" class="policy-section">
+        <h2>Política de Privacidad</h2>
+        <p>En nuestra empresa, nos comprometemos a proteger la privacidad de nuestros clientes. La información personal recopilada, como nombre, dirección, correo electrónico y número de teléfono, se utilizará exclusivamente para gestionar los pedidos y brindar soporte al cliente. No compartimos ni vendemos ninguna de sus informaciones con terceros.</p>
+        <p>También aseguramos que todos los datos proporcionados serán almacenados de forma segura y en cumplimiento con las leyes de protección de datos personales. Utilizamos tecnologías avanzadas de cifrado y protección para asegurar la confidencialidad de los mismos.</p>
+
+        <h2>Términos y Condiciones</h2>
+        <p>Al realizar una compra en nuestra tienda, usted acepta nuestros términos y condiciones. Estos incluyen la aceptación de precios, tiempos de entrega, condiciones de pago y política de garantía. La empresa se reserva el derecho de modificar estos términos sin previo aviso.</p>
+        <p>Los productos ofrecidos están sujetos a disponibilidad, y en caso de no contar con el artículo solicitado, se informará al cliente inmediatamente para acordar una alternativa o la cancelación del pedido.</p>
+
+        <h2>Política de Devoluciones</h2>
+        <p>Si no está satisfecho con su compra, puede devolver el producto dentro de los 30 días posteriores a la compra. El artículo debe estar en su embalaje original y sin señales de uso. El reembolso se realizará a través del mismo método de pago utilizado, una vez que el producto haya sido revisado. Los costos de envío de la devolución corren por cuenta del cliente, salvo que el producto recibido esté defectuoso o incorrecto.</p>
+        <p>Para iniciar una devolución, por favor contáctenos a través de nuestro formulario de contacto o el correo electrónico proporcionado en la página de contacto.</p>
+
+        <h2>Política de Envíos</h2>
+        <p>Realizamos envíos a nivel nacional. El tiempo de entrega depende de la ubicación del destino y del tipo de envío seleccionado. Los envíos estándar suelen tardar entre 3 y 7 días hábiles, mientras que los envíos express pueden tardar entre 1 y 3 días hábiles. Los costos de envío se calculan durante el proceso de compra en función del peso y destino del paquete.</p>
+        <p>La empresa no se hace responsable por retrasos ocasionados por la empresa de mensajería. Sin embargo, estamos comprometidos a resolver cualquier inconveniente de la manera más eficiente posible.</p>
+
+        <h2>Política de Pagos</h2>
+        <p>Los pagos se realizan a través de plataformas seguras que aceptan tarjetas de crédito, débito, transferencias bancarias y otros métodos de pago electrónicos. Todos los pagos son procesados en un entorno seguro que cumple con los estándares internacionales de protección de datos.</p>
+        <p>Es importante que verifique los detalles de su pago antes de finalizar la compra. Si hay algún problema con el pago o la transacción, nuestro equipo de soporte estará disponible para asistirlo en todo momento.</p>
+
+        <h2>Seguridad en las Compras</h2>
+        <p>La seguridad de nuestros clientes es nuestra principal prioridad. Utilizamos tecnologías de encriptación SSL para proteger la información de pago durante todo el proceso de compra. Además, implementamos medidas de seguridad adicionales para prevenir fraudes y asegurar que todas las transacciones se realicen de manera segura.</p>
+
+        <h2>Garantía de Productos</h2>
+        <p>Todos los productos vendidos en nuestra tienda tienen una garantía mínima de 12 meses, la cual cubre defectos de fabricación. Si el producto presenta algún problema dentro del período de garantía, será reparado o reemplazado sin costo adicional, siempre que el uso del artículo haya sido adecuado y conforme a las instrucciones del fabricante.</p>
+
+        <h2>Política de Soporte</h2>
+        <p>Ofrecemos soporte técnico a través de nuestro centro de atención al cliente. Si tiene algún problema con su producto o necesita asistencia, puede ponerse en contacto con nosotros por correo electrónico o mediante el formulario de contacto en nuestro sitio web.</p>
+    </section>
+    
+    
+    
+
+    <!-- Footer -->
+    <!-- Footer con mejoras visuales y Font Awesome para iconos -->
+    <footer>
+        <div class="footer-container">
+            <!-- Sección de enlaces importantes -->
+            <div class="footer-links">
+                <div class="footer-link-section">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-link-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="footer-link-section">
+                    <h3>Dirección</h3>
+                    <p>Av. Paz Soldán 120, La Joya 0440, Arequipa, Perú</p>
+                    <a href="#contact-form" class="btn-contact">Contáctanos</a>
+                </div>
+            </div>
+    
+            <!-- Sección de información básica (copyright y contacto) -->
+            <div class="footer-info">
+                <p>&copy; 2024 TechWave. Todos los derechos reservados.</p>
+                <p>Contáctanos: <a href="tel:+954012354">954 012 354</a> | <a href="mailto:mayra22cuenta@gmail.com">mayra22cuenta@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+    
+    
+
+<!-- Agregar Font Awesome para los iconos -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    
+    
+
+    <!-- Modal de Carrito -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <button onclick="openPaymentModal()">Pagar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Pago -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h2>Pago con Tarjeta de Crédito</h2>
+            <div class="card-logos">
+                <img src="img/visa.png" alt="Visa" class="card-logo">
+                <img src="img/discover.png" alt="MasterCard" class="card-logo">
+                <img src="img/mastercard.jpg" alt="American Express" class="card-logo">
+                <img src="img/amex.png" alt="Discover" class="card-logo">
+            </div>
+
+            <form id="payment-form">
+                <label for="card-number">Número de tarjeta:</label>
+                <input type="text" id="card-number" name="card-number" placeholder="Número de tarjeta" required><br>
+
+                <label for="expiry-date">Fecha de vencimiento:</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required><br>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" required><br>
+
+                <button type="submit">Confirmar pago</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Iniciar sesión -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <input type="text" placeholder="Correo" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Contacto -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactForm()">&times;</span>
+            <h2>Contáctanos</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
